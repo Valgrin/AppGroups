@@ -1,20 +1,9 @@
-<!DOCTYPE html>
-<html class="default-theme">
-<head>
-  <title>Title</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <textarea id="source">
-highlightStyle: dracula
-class: inverse middle
+
 # iOS App Groups for Debugging
 ## Avez-vous déjà livré votre menu debug en Prod ? Nous oui, et nous avons trouvé une solution originale basée sur les App Groups pour que cela n'arrive plus jamais.
 
 ---
 
-class: middle
 # Agenda
 
 1. Qu'est-ce que c'est ?
@@ -25,19 +14,15 @@ class: middle
 
 ---
 
-class: middle
 # App Groups: Qu’est ce que c’est ?
 
 App Groups are the scheme iOS uses to allow different apps to share data. If the apps have the right entitlements and proper provisioning, they can access a shared directory outside of their normal iOS sandbox. Sandboxing still applies except for a single exception.
 
-.footnote[Source: http://www.atomicbird.com/blog/sharing-with-app-extensions]
-
 ---
 
-class: middle
 # App Groups: A quoi ça sert ?
 
-Partager des données entre applications du même `App Group` en utilisant :
+Partager des données entre application du même `App Group` en utilisant :
 - Keychain
 - Préférences: `UserDefaults`
 - Fichiers: `FileManager`
@@ -45,7 +30,6 @@ Partager des données entre applications du même `App Group` en utilisant :
 
 ---
 
-class: middle
 # App Groups: Chez Meetic
 
 ## En production
@@ -54,7 +38,7 @@ Partager le Keychain aux extensions
 
 ## Pour le debug
 
-- Changement d’URL serveur
+- Changement de serveur
 - Feature Flipping
 - Logging
 - Langue de l’application sans changer la langue du téléphone via `AppleLanguages`
@@ -64,12 +48,10 @@ Partager le Keychain aux extensions
 
 ---
 
-class: inverse center middle
-# Démo
+# Demo
 
 ---
 
-class: middle
 # Autres idées
 
 - Récupérer un user id, le numéro de version
@@ -78,39 +60,6 @@ class: middle
 
 ---
 
-class: inverse center middle
-# Configurer votre projet
-
----
-
-class: middle
-# Enregister un App Group 1/2
-
-<img src="img/register1.png" width="90%"></img>
-
----
-
-class: middle
-# Enregister un App Group 2/2
-
-<img src="img/register2.png" width="90%"></img>
-
----
-
-class: middle
-# Ajouter aux Entitlements 1/2
-
-<img src="img/entitlements1.png" width="90%"></img>
-
----
-
-class: middle
-# Ajouter aux Entitlements 2/2
-
-<img src="img/entitlements2.png" width="90%"></img>
----
-
-class: middle
 # Use It - UserDefaults
 
 ```Swift
@@ -121,32 +70,28 @@ userDefaults?.bool(forKey: "SharedKey")
 ---
 
 class: middle
+
 # Use It - FileManager
 
 ```Swift
 let fileManager = FileManager.default
 let containerURL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.com.meetic.ios.cocoaheads")
 if let fileURL = containerURL?.appendingPathComponent("file.txt", isDirectory: false) {
-    if let fileHandle = try? FileHandle(forWritingTo: fileURL) {
-        if let data = "Hello World!".data(using: .utf8) {
-            fileHandle.write(data)
-        }
-        fileHandle.closeFile()
+  if let fileHandle = try? FileHandle(forWritingTo: fileURL) {
+    if let data = "Hello World!".data(using: .utf8) {
+      fileHandle.write(data)
     }
+    fileHandle.closeFile()
+  }
 }
 ```
 
 ---
 
-class: inverse middle center
+class: center, middle
+
+# Demo
+
+---
+
 # Questions
-  </textarea>
-  <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-  <script>
-      var slideshow = remark.create({
-        highlightLanguage: 'swift',
-        highlightStyle: 'monokai',
-      });
-  </script>
-</body>
-</html>
