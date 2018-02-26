@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# iOS App Groups for Debugging
+## Avez-vous déjà livré votre menu debug en Prod ? Nous oui, et nous avons trouvé une solution originale basée sur les App Groups pour que cela n'arrive plus jamais.
+
+---
+
+# Agenda
+
+1. What Is It?
+2. Setup Your Project
+3. Use It
+4. Demo
+5. Questions
+
+---
+
+# App Groups: What Does Use It?
+
+Available starting iOS 3.0 *(Yes, that early)*
+- **KeyChain (iOS 3.0)** I will not detail how to use it
+
+```Swift
+let kSecAttrAccessGroup: CFString
+```
+
+- **UserDefaults (iOS 7.0)**
+
+```Swift
+init?(suiteName suitename: String?)
+```
+
+- **FileManager (iOS 7.0)**
+
+```Swift
+func containerURL(forSecurityApplicationGroupIdentifier groupIdentifier: String) -> URL?
+```
+
+- **HTTPCookieStorage (iOS 9.0)** I will not detail how to use it
+
+```Swift
+class func sharedCookieStorage(forGroupContainerIdentifier identifier: String) -> HTTPCookieStorage
+```
+
+---
+
+class: center, middle
+
+# Setup Your Project
+
+---
+
+class: middle
+
+# Use It - UserDefaults
+
+```Swift
+let userDefaults = UserDefaults(suiteName: "group.com.meetic.ios.cocoaheads")
+userDefaults?.bool(forKey: "SharedKey")
+```
+
+---
+
+class: middle
+
+# Use It - FileManager
+
+```Swift
+let fileManager = FileManager.default
+let containerURL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.com.meetic.ios.cocoaheads")
+if let fileURL = containerURL?.appendingPathComponent("file.txt", isDirectory: false) {
+	if let fileHandle = try? FileHandle(forWritingTo: fileURL) {
+		if let data = "Hello World!".data(using: .utf8) {
+			fileHandle.write(data)
+		}
+		fileHandle.closeFile()
+	}
+}
+```
+
+---
+
+class: center, middle
+
+# Demo
+
+---
+
+# Questions
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
