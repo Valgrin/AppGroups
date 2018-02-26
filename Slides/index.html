@@ -111,7 +111,7 @@ class: middle
 ---
 
 class: middle
-# Use It - UserDefaults
+# Utiliser - UserDefaults
 
 ```Swift
 let userDefaults = UserDefaults(suiteName: "group.com.meetic.ios.cocoaheads")
@@ -121,7 +121,7 @@ userDefaults?.bool(forKey: "SharedKey")
 ---
 
 class: middle
-# Use It - FileManager
+# Utiliser - FileManager
 
 ```Swift
 let fileManager = FileManager.default
@@ -135,6 +135,24 @@ if let fileURL = containerURL?.appendingPathComponent("file.txt", isDirectory: f
     }
 }
 ```
+
+---
+
+class: middle
+# ⚠️ Important à savoir
+
+Le conteneur partagé n’est pas supprimé si il reste encore une application installée appartenant à l’App Group
+
+Les applications doivent être signées avec le même provisionning profile
+
+---
+
+class: middle
+# Projet d’exemple & Slides
+
+https://github.com/Valgrin/AppGroups
+
+<img src="img/qrcode.jpg"></img>
 
 ---
 
