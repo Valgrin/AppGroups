@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		69B93799203AE1E400F09D7A /* AppGroupStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 69B93797203AE1E400F09D7A /* AppGroupStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69B937A0203AE1FE00F09D7A /* AppGroupStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9379F203AE1FE00F09D7A /* AppGroupStore.swift */; };
-		69B937B6203AE2B000F09D7A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B937B5203AE2B000F09D7A /* Constants.swift */; };
+		69B937B6203AE2B000F09D7A /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B937B5203AE2B000F09D7A /* UserDefaultsKey.swift */; };
 		69B937C2203B000A00F09D7A /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B937C1203B000A00F09D7A /* FileHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -18,7 +18,7 @@
 		69B93797203AE1E400F09D7A /* AppGroupStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppGroupStore.h; sourceTree = "<group>"; };
 		69B93798203AE1E400F09D7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69B9379F203AE1FE00F09D7A /* AppGroupStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupStore.swift; sourceTree = "<group>"; };
-		69B937B5203AE2B000F09D7A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		69B937B5203AE2B000F09D7A /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		69B937C1203B000A00F09D7A /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,7 +55,7 @@
 				69B93797203AE1E400F09D7A /* AppGroupStore.h */,
 				69B93798203AE1E400F09D7A /* Info.plist */,
 				69B9379F203AE1FE00F09D7A /* AppGroupStore.swift */,
-				69B937B5203AE2B000F09D7A /* Constants.swift */,
+				69B937B5203AE2B000F09D7A /* UserDefaultsKey.swift */,
 				69B937C1203B000A00F09D7A /* FileHelper.swift */,
 			);
 			path = AppGroupStore;
@@ -142,7 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69B937A0203AE1FE00F09D7A /* AppGroupStore.swift in Sources */,
-				69B937B6203AE2B000F09D7A /* Constants.swift in Sources */,
+				69B937B6203AE2B000F09D7A /* UserDefaultsKey.swift in Sources */,
 				69B937C2203B000A00F09D7A /* FileHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
