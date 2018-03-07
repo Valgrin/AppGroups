@@ -2,8 +2,6 @@
 
 Demo App to demonstrate usage of iOS App Groups for debugging purposes
 
-Slides built using [Remarkjs](https://github.com/gnab/remark)
-
 ## Usage
 
 ### UserDefaults
